@@ -34,7 +34,7 @@ const App = () => {
     setUserId(storedUserId);
 
     axios
-      .get(`http://localhost:5000/api/stats/${storedUserId}`)
+      .get(`https://cookie-clicker-ashen.vercel.app/api/stats/${storedUserId}`)
       .then((res) => {
         setTotalClicks(res.data.totalClicks);
         setTotalScore(res.data.totalScore);
@@ -44,7 +44,10 @@ const App = () => {
   }, []);
 
   const handleClick = async (event) => {
-    const res = await axios.post('http://localhost:5000/api/click', { userId });
+    const res = await axios.post(
+      'https://cookie-clicker-ashen.vercel.app/api/click',
+      { userId }
+    );
     setTotalClicks(res.data.totalClicks);
     setTotalScore(res.data.totalScore);
     setPrizesWon(res.data.prizesWon);

@@ -6,7 +6,7 @@ const UserList = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/stats')
+      .get('https://cookie-clicker-ashen.vercel.app/api/stats')
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
   }, [users]);
