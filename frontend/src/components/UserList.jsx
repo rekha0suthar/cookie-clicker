@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext, useEffect } from 'react';
+import { ClickContext } from '../context/ClickContext';
 
 const UserList = () => {
-  const [users, setUsers] = useState([]);
+  const { users, fetchUsersStats } = useContext(ClickContext);
 
   useEffect(() => {
-    axios
-      .get('https://cookie-clicker-ashen.vercel.app/api/stats')
-      .then((res) => setUsers(res.data))
-      .catch((err) => console.log(err));
+    fetchUsersStats();
   }, [users]);
 
   return (
@@ -17,7 +14,7 @@ const UserList = () => {
         <h2>🏆 Leaderboard 🏆</h2>
         <table>
           <thead>
-            <tr style={{ background: '#ff6600', color: 'white' }}>
+            <tr>
               <th>User ID</th>
               <th>Total Clicks</th>
               <th>Total Score</th>
