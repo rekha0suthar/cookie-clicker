@@ -99,11 +99,15 @@ const App = () => {
       transition={{ duration: 1 }}
       className="container"
     >
+      {/* This is used to show some animation on win */}
       {showConfetti && <Confetti />}
       <h1>🔥 Cookie Clicker Clone 🔥</h1>
-
+      {/* Component for User Stata */}
       <UserStats />
+      {/* Click Button  */}
       <ClickButton handleClick={handleClick} />
+
+      {/* Leaderboard */}
       <UserList />
 
       {/* Floating Clicks */}
@@ -115,7 +119,7 @@ const App = () => {
           y={click.y}
         />
       ))}
-
+      {/* Toast to show popups */}
       <ToastContainer autoClose={1000} closeOnClick />
     </motion.div>
   );
