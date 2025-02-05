@@ -12,30 +12,20 @@ const UserList = () => {
   }, [users]);
 
   return (
-    users.length > 0 && (
-      <div style={{ textAlign: 'center', marginTop: '40px' }}>
+    users?.length > 0 && (
+      <div className="leader-board">
         <h2>🏆 Leaderboard 🏆</h2>
-        <table
-          style={{ width: '80%', margin: 'auto', borderCollapse: 'collapse' }}
-        >
+        <table>
           <thead>
             <tr style={{ background: '#ff6600', color: 'white' }}>
-              <th style={{ padding: '10px', borderBottom: '2px solid white' }}>
-                User ID
-              </th>
-              <th style={{ padding: '10px', borderBottom: '2px solid white' }}>
-                Total Clicks
-              </th>
-              <th style={{ padding: '10px', borderBottom: '2px solid white' }}>
-                Total Score
-              </th>
-              <th style={{ padding: '10px', borderBottom: '2px solid white' }}>
-                Prizes Won
-              </th>
+              <th>User ID</th>
+              <th>Total Clicks</th>
+              <th>Total Score</th>
+              <th>Prizes Won</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {users?.map((user, index) => (
               <tr
                 key={user._id}
                 style={{
@@ -43,18 +33,10 @@ const UserList = () => {
                   color: '#000',
                 }}
               >
-                <td style={{ padding: '10px', borderBottom: '1px solid gray' }}>
-                  {user.userId}
-                </td>
-                <td style={{ padding: '10px', borderBottom: '1px solid gray' }}>
-                  {user.totalClicks}
-                </td>
-                <td style={{ padding: '10px', borderBottom: '1px solid gray' }}>
-                  {user.totalScore}
-                </td>
-                <td style={{ padding: '10px', borderBottom: '1px solid gray' }}>
-                  {user.prizesWon}
-                </td>
+                <td>{user.userId}</td>
+                <td>{user.totalClicks}</td>
+                <td>{user.totalScore}</td>
+                <td>{user.prizesWon}</td>
               </tr>
             ))}
           </tbody>
